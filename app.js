@@ -1,13 +1,21 @@
-var clickToHide = function(arg){
-    if(arg==true){
-        
-        document.addEventListener('click',function(e){
-            e.target.style="display:none;";
-        });
-    } else {
-        document.addEventListener('click',function(e){
-            e.target.style="";
-        });
-    }
+var active = true;
+
+document.getElementsByTagName("body")[0].style.cursor = "crosshair";
+
+for(var i=0;i<document.getElementsByTagName("a").length;i++){
+  document.getElementsByTagName("a")[i].style.cursor = "crosshair";
 }
-clickToHide(true);
+
+document.onclick = function(e){
+  if (active == true){
+    e.preventDefault();
+    e.target.style="display:none;"
+    active = false;
+
+    document.getElementsByTagName("body")[0].style.cursor = "auto";
+    
+    for(var i=0;i<document.getElementsByTagName("a").length;i++){
+      document.getElementsByTagName("a")[i].style.cursor = "auto";
+    }
+  }
+}
