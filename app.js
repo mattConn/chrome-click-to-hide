@@ -1,3 +1,7 @@
+var head = document.querySelector("head");
+head.innerHTML+="<style class=\"click-to-hide\"> *:hover {border: solid 1px red;} </style>";
+var style = document.querySelector(".click-to-hide");
+
 var active = true;
 
 document.getElementsByTagName("body")[0].style.cursor = "crosshair";
@@ -17,5 +21,7 @@ document.onclick = function(e){
     for(var i=0;i<document.getElementsByTagName("a").length;i++){
       document.getElementsByTagName("a")[i].style.cursor = "auto";
     }
+
+	head.removeChild(style);
   }
 }
